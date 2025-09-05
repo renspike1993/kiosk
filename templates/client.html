@@ -34,7 +34,7 @@
 			.header {
 				background: linear-gradient(135deg, #800020 0%, #5c0018 100%);
 				color: white;
-				padding: 25px;
+				padding: 20px;
 				text-align: center;
 			}
 
@@ -323,7 +323,8 @@
 	<body>
 		<div class="kiosk-container">
 			<div class="header">
-				<h1>University Registrar Document Request</h1>
+				<img src="static/moist.png" style="height: 80px" alt="University Logo" />
+				<h1>MOIST Registrar's Request Kiosk</h1>
 				<p>Request official documents with our self-service kiosk</p>
 			</div>
 
@@ -357,13 +358,26 @@
 					<p>Please verify your student profile information</p>
 
 					<div class="form-group" style="margin-top: 30px">
-						<label for="studentId">Student's Full Name</label>
-						<input type="text" id="studentId" placeholder="Enter your student ID" />
-						<label for="dob">Course</label>
-						<input type="date" id="dob" />
+						<label for="student_name">Student's Full Name</label>
+						<input type="text" id="student_name" placeholder="Enter your full name" />
+						<label for="program">Program</label>
+						<select name="" id="program" class="form-control" required>
+							<option value="" selected disabled>Select Program</option>
+							<option value="">CRIM</option>
+							<option value="">BSED (Mathematics)</option>
+							<option value="">BSED (Values)</option>
+							<option value="">BSED (English)</option>
+							<option value="">BEED</option>
+							<option value="">BSM</option>
+							<option value="">BSHM</option>
+							<option value="">BSTM</option>
+							<option value="">BSIT</option>
+						</select>
+						<label for="email">Email</label>
+						<input type="email" placeholder="Valid email address" id="email" />
+						<label for="mobile_num">Mobile Number</label>
+						<input type="text" placeholder="11-digit number" id="mobile_num" />
 					</div>
-
-					<div class="form-group"></div>
 				</div>
 
 				<!-- Step 2: Document Request -->
@@ -374,35 +388,16 @@
 					<div class="document-grid">
 						<div class="document-tile">
 							<div class="document-icon">
-								<i class="fas fa-file-alt"></i>
+								<i class="fas fa-file"></i>
 							</div>
-							<div class="document-title">Official Transcript</div>
-							<div class="document-desc">Complete academic record with university seal</div>
+							<div class="document-title">Diploma</div>
+							<div class="document-desc">Request a diploma</div>
 							<div class="add-to-cart">
-								<select class="purpose-select">
+								<select class="purpose-select" disabled>
 									<option value="">Select Purpose</option>
-									<option value="Graduate School">Graduate School</option>
-									<option value="Employment">Employment</option>
-									<option value="Scholarship">Scholarship</option>
-									<option value="Personal Use">Personal Use</option>
-								</select>
-								<button class="btn-add">Add to Cart</button>
-							</div>
-						</div>
-
-						<div class="document-tile">
-							<div class="document-icon">
-								<i class="fas fa-certificate"></i>
-							</div>
-							<div class="document-title">Enrollment Verification</div>
-							<div class="document-desc">Proof of current enrollment status</div>
-							<div class="add-to-cart">
-								<select class="purpose-select">
-									<option value="">Select Purpose</option>
-									<option value="Insurance">Insurance</option>
-									<option value="Loan Deferment">Loan Deferment</option>
-									<option value="Housing">Housing</option>
-									<option value="Personal Use">Personal Use</option>
+									<option value="Replacement">Replacement</option>
+									<option value="Additional Copy">Additional Copy</option>
+									<option value="Frame Display">Frame Display</option>
 								</select>
 								<button class="btn-add">Add to Cart</button>
 							</div>
@@ -412,7 +407,41 @@
 							<div class="document-icon">
 								<i class="fas fa-scroll"></i>
 							</div>
-							<div class="document-title">Degree Verification</div>
+							<div class="document-title">Official Transcript Record</div>
+							<div class="document-desc">Complete academic record with university seal</div>
+							<div class="add-to-cart">
+								<select class="purpose-select">
+									<option value="">Select Purpose</option>
+									<option value="Graduate School">For Board Examination</option>
+									<option value="Employment">For Employment</option>
+									<option value="Scholarship">For Evaluation w/ HD</option>
+								</select>
+								<button class="btn-add">Add to Cart</button>
+							</div>
+						</div>
+
+						<div class="document-tile">
+							<div class="document-icon">
+								<i class="fas fa-passport"></i>
+							</div>
+							<div class="document-title">Certificate of Enrollment (COE)</div>
+							<div class="document-desc">Proof of current enrollment status</div>
+							<div class="add-to-cart">
+								<select class="purpose-select">
+									<option value="">Select Purpose</option>
+									<option value="Insurance">Scholarship</option>
+									<option value="Loan Deferment">Educational Assitance</option>
+									<option value="Housing">Others</option>
+								</select>
+								<button class="btn-add">Add to Cart</button>
+							</div>
+						</div>
+
+						<div class="document-tile">
+							<div class="document-icon">
+								<i class="fas fa-file"></i>
+							</div>
+							<div class="document-title">Grade Weighted Average (GWA)</div>
 							<div class="document-desc">Confirmation of awarded degree</div>
 							<div class="add-to-cart">
 								<select class="purpose-select">
@@ -428,16 +457,71 @@
 
 						<div class="document-tile">
 							<div class="document-icon">
-								<i class="fas fa-passport"></i>
+								<i class="fas fa-file"></i>
 							</div>
-							<div class="document-title">Diploma Replacement</div>
-							<div class="document-desc">Request a replacement diploma</div>
+							<div class="document-title">Certificate of Graduation (COG)</div>
+							<div class="document-desc">Confirmation of awarded degree</div>
 							<div class="add-to-cart">
 								<select class="purpose-select">
 									<option value="">Select Purpose</option>
-									<option value="Replacement">Replacement</option>
-									<option value="Additional Copy">Additional Copy</option>
-									<option value="Frame Display">Frame Display</option>
+									<option value="Employment">Employment</option>
+									<option value="Background Check">Background Check</option>
+									<option value="Licensure">Licensure</option>
+									<option value="Personal Use">Personal Use</option>
+								</select>
+								<button class="btn-add">Add to Cart</button>
+							</div>
+						</div>
+
+						<div class="document-tile">
+							<div class="document-icon">
+								<i class="fas fa-file"></i>
+							</div>
+							<div class="document-title">Certificate of Unit Earned</div>
+							<div class="document-desc">Confirmation of awarded degree</div>
+							<div class="add-to-cart">
+								<select class="purpose-select">
+									<option value="">Select Purpose</option>
+									<option value="Employment">Employment</option>
+									<option value="Background Check">Background Check</option>
+									<option value="Licensure">Licensure</option>
+									<option value="Personal Use">Personal Use</option>
+								</select>
+								<button class="btn-add">Add to Cart</button>
+							</div>
+						</div>
+
+						<div class="document-tile">
+							<div class="document-icon">
+								<i class="fas fa-file"></i>
+							</div>
+							<div class="document-title">Rating Slip</div>
+							<div class="document-desc">Confirmation of awarded degree</div>
+							<div class="add-to-cart">
+								<select class="purpose-select" disabled>
+									<option value="">Select Purpose</option>
+									<option value="Employment">Employment</option>
+									<option value="Background Check">Background Check</option>
+									<option value="Licensure">Licensure</option>
+									<option value="Personal Use">Personal Use</option>
+								</select>
+								<button class="btn-add">Add to Cart</button>
+							</div>
+						</div>
+
+						<div class="document-tile">
+							<div class="document-icon">
+								<i class="fas fa-file"></i>
+							</div>
+							<div class="document-title">Exam Permit</div>
+							<div class="document-desc">Confirmation of awarded degree</div>
+							<div class="add-to-cart">
+								<select class="purpose-select" disabled>
+									<option value="">Select Purpose</option>
+									<option value="Employment">Employment</option>
+									<option value="Background Check">Background Check</option>
+									<option value="Licensure">Licensure</option>
+									<option value="Personal Use">Personal Use</option>
 								</select>
 								<button class="btn-add">Add to Cart</button>
 							</div>
@@ -520,6 +604,14 @@
 				const nextBtn = document.getElementById("nextBtn");
 				let currentStep = 0;
 
+				var client_info = {
+					student_name: student_name.value,
+					program: program.value,
+					email: email.value,
+					mobile_num: mobile_num.value,
+					docs_requests: [],
+				};
+
 				// Initialize the interface
 				updateStep();
 
@@ -576,10 +668,20 @@
 						prevBtn.innerHTML = '<i class="fas fa-arrow-left"></i> Previous';
 					}
 
+					if (currentStep === 2) {
+					}
+
 					// Change next button to submit on the last step
 					if (currentStep === stepContents.length - 2) {
 						nextBtn.textContent = "Submit";
 						nextBtn.classList.add("btn-submit");
+						nextBtn.addEventListener("click", function () {
+							// Save client_info object to localStorage
+							localStorage.setItem("client_info", JSON.stringify(client_info));
+
+							// Optional: confirm it worked
+							alert("Saved to local storage:\n" + JSON.stringify(client_info, null, 2));
+						});
 					} else {
 						nextBtn.textContent = "Next";
 						nextBtn.classList.remove("btn-submit");
@@ -600,7 +702,10 @@
 							return;
 						}
 
-						alert(`Added ${title} to your cart for ${purpose}.`);
+						client_info.docs_requests.push({ docs: title, purpose: "" });
+						alert(client_info.docs_requests[0].docs);
+
+						// alert(`Added ${title} to your cart for ${purpose}.`);
 						// In a real application, this would add to a cart array and update the review section
 					});
 				});
