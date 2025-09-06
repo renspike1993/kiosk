@@ -399,7 +399,7 @@
 									<option value="Additional Copy">Additional Copy</option>
 									<option value="Frame Display">Frame Display</option>
 								</select>
-								<button class="btn-add">Add to Cart</button>
+								<button class="btn-add">+ Request</button>
 							</div>
 						</div>
 
@@ -410,11 +410,11 @@
 							<div class="document-title">Official Transcript Record</div>
 							<div class="document-desc">Complete academic record with university seal</div>
 							<div class="add-to-cart">
-								<select class="purpose-select">
+								<select class="purpose-select" id="purpose">
 									<option value="">Select Purpose</option>
 									<option value="Graduate School">For Board Examination</option>
 									<option value="Employment">For Employment</option>
-									<option value="Scholarship">For Evaluation w/ HD</option>
+									<option value="evaluation">For Evaluation w/ HD</option>
 								</select>
 								<button class="btn-add">Add to Cart</button>
 							</div>
@@ -516,13 +516,7 @@
 							<div class="document-title">Exam Permit</div>
 							<div class="document-desc">Confirmation of awarded degree</div>
 							<div class="add-to-cart">
-								<select class="purpose-select" disabled>
-									<option value="">Select Purpose</option>
-									<option value="Employment">Employment</option>
-									<option value="Background Check">Background Check</option>
-									<option value="Licensure">Licensure</option>
-									<option value="Personal Use">Personal Use</option>
-								</select>
+								<input type="hidden" id="purpose" value="None" />
 								<button class="btn-add">Add to Cart</button>
 							</div>
 						</div>
@@ -581,7 +575,7 @@
 							<i class="fas fa-check-circle"></i>
 						</div>
 						<h2>Request Submitted Successfully!</h2>
-						<p>Your document request has been received and is being processed.</p>
+						<p>Your document request has been received.</p>
 
 						<div class="reference-number">Reference Number: REG-2023-78952</div>
 
@@ -675,13 +669,11 @@
 					if (currentStep === stepContents.length - 2) {
 						nextBtn.textContent = "Submit";
 						nextBtn.classList.add("btn-submit");
-						nextBtn.addEventListener("click", function () {
-							// Save client_info object to localStorage
-							localStorage.setItem("client_info", JSON.stringify(client_info));
 
-							// Optional: confirm it worked
-							alert("Saved to local storage:\n" + JSON.stringify(client_info, null, 2));
-						});
+						localStorage.setItem("client_info", JSON.stringify(client_info));
+
+						// Optional: confirm it worked
+						alert("Saved to local storage:\n" + JSON.stringify(client_info, null, 2));
 					} else {
 						nextBtn.textContent = "Next";
 						nextBtn.classList.remove("btn-submit");
@@ -696,6 +688,10 @@
 						const tile = this.closest(".document-tile");
 						const title = tile.querySelector(".document-title").textContent;
 						const purpose = tile.querySelector(".purpose-select").value;
+
+						if (purpose === "evaluation") {
+							client_info.docs_requests.push({ docs: "Honorable Dismissal", purpose: "For Evaluation" });
+						}
 
 						if (purpose === "") {
 							alert("Please select a purpose for this document.");
