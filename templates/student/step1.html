@@ -1,0 +1,43 @@
+{% extends('client.html') %} {% block content %}
+
+<!-- Step 1: Student Profile -->
+<form action="{{ url_for('step2') }}">
+	<div class="step-content active" id="step1">
+		<h2>Student Information</h2>
+		<p>Please verify your student profile information</p>
+
+		<div class="form-grid">
+			<div class="form-group">
+				<label for="student_name">Student's Full Name</label>
+				<input type="text" id="student_name" placeholder="Enter your full name" />
+			</div>
+
+			<div class="form-group">
+				<label for="program">Program</label>
+				<select id="program" required>
+					<option value="" selected disabled>Select Program</option>
+					<option value="CRIM">CRIM</option>
+					<option value="BSED Mathematics">BSED (Mathematics)</option>
+					<option value="BSED Values">BSED (Values)</option>
+					<option value="BSED English">BSED (English)</option>
+					<option value="BEED">BEED</option>
+					<option value="BSM">BSM</option>
+					<option value="BSHM">BSHM</option>
+					<option value="BSTM">BSTM</option>
+					<option value="BSIT">BSIT</option>
+				</select>
+			</div>
+
+			<div class="form-group">
+				<label for="email">Email Address</label>
+				<input type="email" id="email" placeholder="Valid email address" />
+			</div>
+
+			<div class="form-group">
+				<label for="mobile_num">Mobile Number</label>
+				<input type="text" id="mobile_num" placeholder="11-digit number" />
+			</div>
+		</div>
+	</div>
+</form>
+{% endblock %}
